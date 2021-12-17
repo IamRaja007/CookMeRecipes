@@ -1,6 +1,8 @@
 package com.example.cookmerecipes.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class RecipeSearchResponse(
 
@@ -8,6 +10,7 @@ data class RecipeSearchResponse(
 	val results: List<ResultsItem?>? = null
 )
 
+@Parcelize
 data class ExtendedIngredientsItem(
 
 	@field:SerializedName("image")
@@ -25,7 +28,7 @@ data class ExtendedIngredientsItem(
 	@field:SerializedName("unit")
 	val unit: String? = null,
 
-)
+):Parcelable
 
 data class IngredientsItem(
 
@@ -42,6 +45,7 @@ data class IngredientsItem(
 	val id: Int? = null
 )
 
+@Parcelize
 data class ResultsItem(
 
 	@field:SerializedName("sustainable")
@@ -110,8 +114,8 @@ data class ResultsItem(
 	@field:SerializedName("missedIngredientCount")
 	val missedIngredientCount: Int? = null,
 
-	@field:SerializedName("occasions")
-	val occasions: List<Any?>? = null,
+//	@field:SerializedName("occasions")
+//	val occasions: List<Any?>? = null,
 
 	@field:SerializedName("pricePerServing")
 	val pricePerServing: Double? = null,
@@ -121,6 +125,6 @@ data class ResultsItem(
 
 	@field:SerializedName("spoonacularSourceUrl")
 	val spoonacularSourceUrl: String? = null
-)
+):Parcelable
 
 

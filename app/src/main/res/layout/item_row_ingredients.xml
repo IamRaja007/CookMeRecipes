@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_5sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="@color/strokeColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/_2sdp"
+            android:background="@color/cardBackgroundColor">
+
+            <View
+                android:id="@+id/view_White"
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                app:layout_constraintTop_toTopOf="@id/view_White"
+                app:layout_constraintStart_toStartOf="@id/view_White"
+                app:layout_constraintEnd_toEndOf="@id/view_White"
+                app:layout_constraintBottom_toBottomOf="@id/view_White"/>
+
+            <TextView
+                android:id="@+id/tvIngredientName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ingredient name"
+                android:fontFamily="@font/futurastdmedium"
+                android:textStyle="bold"
+                android:textColor="@color/titleColor"
+                app:layout_constraintStart_toEndOf="@id/view_White"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"/>
+
+            <TextView
+                android:id="@+id/tvIngredientAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="100"
+                app:layout_constraintTop_toBottomOf="@id/tvIngredientName"
+                app:layout_constraintStart_toStartOf="@id/tvIngredientName"/>
+
+            <TextView
+                android:id="@+id/tvIngredientUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grams"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:layout_constraintTop_toTopOf="@id/tvIngredientAmount"
+                app:layout_constraintStart_toEndOf="@id/tvIngredientAmount"
+                />
+
+            <TextView
+                android:id="@+id/tvConsistency"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/tvIngredientAmount"
+                app:layout_constraintTop_toBottomOf="@id/tvIngredientAmount"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text="Consistencyyy"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvConsistency"
+                app:layout_constraintStart_toStartOf="@id/tvConsistency"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

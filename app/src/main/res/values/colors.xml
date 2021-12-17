@@ -19,5 +19,14 @@
     <color name="yellow">#FFC114</color>
     <color name="green">#00C980</color>
 
+    <color name="chipCheckedBackgroundColor">#206200EE</color>
+    <color name="chipCheckedTextColor">#FF6200EE</color>
+    <color name="chipDefaultBackgroundColor">@color/lightGray</color>
+    <color name="chipDefaultTextColor">@color/darkGray</color>
+
+    <color name="actionBarBackgroundColor">@color/purple_500</color>
+    <color name="strokeColor">@color/lightMediumGray</color>
+    <color name="cardBackgroundColor">@color/white</color>
+    <color name="titleColor">@color/darker</color>
 
 </resources>

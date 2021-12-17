@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.overviewfragment.OverviewFragment">
+    
+    <ImageView
+        android:id="@+id/ivOverviewImage"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_height="@dimen/_180sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/gradient_overlay"
+        app:layout_constraintTop_toTopOf="@id/ivOverviewImage"
+        app:layout_constraintBottom_toBottomOf="@id/ivOverviewImage"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintEnd_toEndOf="@id/ivOverviewImage"/>
+
+    <TextView
+        android:id="@+id/tvReadyTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="@id/ivOverviewImage"
+        app:layout_constraintBottom_toBottomOf="@id/ivOverviewImage"
+        android:fontFamily="@font/futurastdmedium"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_timer"
+        android:backgroundTint="@color/white"
+        android:layout_marginBottom="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@id/tvReadyTime"
+        app:layout_constraintStart_toStartOf="@id/tvReadyTime"
+        app:layout_constraintEnd_toEndOf="@id/tvReadyTime"/>
+
+    <TextView
+        android:id="@+id/tvLikesNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:layout_constraintEnd_toStartOf="@id/tvReadyTime"
+        app:layout_constraintBottom_toBottomOf="@id/tvReadyTime"
+        android:fontFamily="@font/futurastdmedium"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_heart_fav"
+        android:backgroundTint="@color/white"
+        android:layout_marginBottom="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@id/tvLikesNumber"
+        app:layout_constraintStart_toStartOf="@id/tvLikesNumber"
+        app:layout_constraintEnd_toEndOf="@id/tvLikesNumber"/>
+
+    <TextView
+        android:id="@+id/tvRecipeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ivOverviewImage"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Title"
+        android:fontFamily="@font/futurastdmedium"
+        android:textSize="@dimen/_20ssp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <ImageView
+        android:id="@+id/ivCheckVegetarian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkGray"
+        android:background="@drawable/ic_check_circle"
+        app:layout_constraintTop_toBottomOf="@id/tvRecipeTitle"
+        app:layout_constraintStart_toStartOf="@id/tvRecipeTitle"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/tvVegetarian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vegetarian"
+        android:fontFamily="@font/helvetica"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/darkGray"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@id/ivCheckVegetarian"
+        app:layout_constraintTop_toTopOf="@id/ivCheckVegetarian"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckVegetarian"/>
+
+    <ImageView
+        android:id="@+id/ivCheckVegan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkGray"
+        android:background="@drawable/ic_check_circle"
+        app:layout_constraintTop_toBottomOf="@id/tvVegetarian"
+        app:layout_constraintStart_toStartOf="@id/ivCheckVegetarian"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/tvVegan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vegan"
+        android:fontFamily="@font/helvetica"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/darkGray"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@id/ivCheckVegan"
+        app:layout_constraintTop_toTopOf="@id/ivCheckVegan"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckVegan"/>
+
+    <ImageView
+        android:id="@+id/ivCheckGlutenFree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkGray"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:background="@drawable/ic_check_circle"
+        app:layout_constraintStart_toEndOf="@id/tvVegetarian"
+        app:layout_constraintTop_toTopOf="@id/tvVegetarian"
+        app:layout_constraintBottom_toBottomOf="@id/tvVegetarian" />
+
+    <TextView
+        android:id="@+id/tvGlutenFree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gluten Free"
+        android:fontFamily="@font/helvetica"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/darkGray"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@id/ivCheckGlutenFree"
+        app:layout_constraintTop_toTopOf="@id/ivCheckGlutenFree"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckGlutenFree"/>
+
+    <ImageView
+        android:id="@+id/ivCheckDairyFree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkGray"
+        android:background="@drawable/ic_check_circle"
+        app:layout_constraintTop_toBottomOf="@id/tvGlutenFree"
+        app:layout_constraintStart_toStartOf="@id/ivCheckGlutenFree"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/tvDairyFree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dairy Free"
+        android:fontFamily="@font/helvetica"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/darkGray"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@id/ivCheckDairyFree"
+        app:layout_constraintTop_toTopOf="@id/ivCheckDairyFree"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckDairyFree"/>
+
+    <ImageView
+        android:id="@+id/ivCheckHealthy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkGray"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:background="@drawable/ic_check_circle"
+        app:layout_constraintStart_toEndOf="@id/tvGlutenFree"
+        app:layout_constraintTop_toTopOf="@id/tvGlutenFree"
+        app:layout_constraintBottom_toBottomOf="@id/tvGlutenFree" />
+
+    <TextView
+        android:id="@+id/tvHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Healthy"
+        android:fontFamily="@font/helvetica"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/darkGray"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@id/ivCheckHealthy"
+        app:layout_constraintTop_toTopOf="@id/ivCheckHealthy"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckHealthy"/>
+
+    <ImageView
+        android:id="@+id/ivCheckCheap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkGray"
+        android:background="@drawable/ic_check_circle"
+        app:layout_constraintTop_toBottomOf="@id/tvHealth"
+        app:layout_constraintStart_toStartOf="@id/ivCheckHealthy"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/tvCheap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cheap"
+        android:fontFamily="@font/helvetica"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/darkGray"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@id/ivCheckCheap"
+        app:layout_constraintTop_toTopOf="@id/ivCheckCheap"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckCheap"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivCheckVegan">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/tvSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="YOOOOOOO"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/helvetica"/>
+            
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        onRecipeClickListener="@{result}"
         android:layout_height="wrap_content">
 
         <com.google.android.material.card.MaterialCardView
@@ -70,7 +71,7 @@
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingEnd="@dimen/_8sdp"
                     android:paddingBottom="@dimen/_2sdp"
-                    android:text="@{result.summary}"
+                    parseHtml="@{result.summary}"
                     android:textColor="@color/darkGray"
                     android:textSize="@dimen/_12ssp"
                     app:layout_constraintEnd_toEndOf="@id/tvRecipeTitle"
