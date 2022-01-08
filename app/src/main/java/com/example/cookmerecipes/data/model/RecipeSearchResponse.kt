@@ -16,6 +16,9 @@ data class ExtendedIngredientsItem(
 	@field:SerializedName("image")
 	val image: String? = null,
 
+	@field:SerializedName("nameClean")
+	val name: String? = null,
+
 	@field:SerializedName("amount")
 	val amount: Double? = null,
 

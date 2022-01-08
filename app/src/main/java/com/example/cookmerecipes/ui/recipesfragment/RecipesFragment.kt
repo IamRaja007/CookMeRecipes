@@ -122,6 +122,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                     hideShimmer()
 //                    hideNoInternetVisual()
 
+                    println(response.data)
                     response.data?.let {
                         mAdapter.setData(it)
                     }

@@ -2,6 +2,7 @@ package com.example.cookmerecipes.data.database
 
 import androidx.room.TypeConverter
 import com.example.cookmerecipes.data.model.RecipeSearchResponse
+import com.example.cookmerecipes.data.model.ResultsItem
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -24,6 +25,17 @@ class RecipesTypeConverter {
     @TypeConverter
     fun stringToRecipeSearchResponse(stringData: String): RecipeSearchResponse {
         val listType = object : TypeToken<RecipeSearchResponse>() {}.type
+        return gson.fromJson(stringData, listType)
+    }
+
+    @TypeConverter
+    fun resultsItemResponseToString(resultsItemResponse:ResultsItem):String{
+        return gson.toJson(resultsItemResponse)
+    }
+
+    @TypeConverter
+    fun stringToResult(stringData:String):ResultsItem{
+        val listType = object : TypeToken<ResultsItem>() {}.type
         return gson.fromJson(stringData, listType)
     }
 }

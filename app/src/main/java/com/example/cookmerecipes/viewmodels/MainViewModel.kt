@@ -6,7 +6,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.lifecycle.*
 import com.example.cookmerecipes.data.Repository
-import com.example.cookmerecipes.data.database.RecipesEntity
+import com.example.cookmerecipes.data.database.entities.FavouritesEntity
+import com.example.cookmerecipes.data.database.entities.RecipesEntity
 import com.example.cookmerecipes.data.model.RecipeSearchResponse
 import com.example.cookmerecipes.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,11 +25,31 @@ class MainViewModel @Inject constructor(
 
     /** Room */
 
-    val readRecipesFromDatabase:LiveData<List<RecipesEntity>> =repository.local.readDatabase().asLiveData()
+    val readRecipesFromDatabase:LiveData<List<RecipesEntity>> =repository.local.readRecipes().asLiveData()
+    val readFavouriteRecipesFromDatabase:LiveData<List<FavouritesEntity>> =repository.local.readFavouriteRecipes().asLiveData()
+
 
     private fun insertRecipes(recipesEntity: RecipesEntity){
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipes(recipesEntity)
+        }
+    }
+
+     fun insertFavouriteRecipes(favouritesEntity: FavouritesEntity){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertFavouriteRecipes(favouritesEntity)
+        }
+    }
+
+    fun deleteFavouriteRecipe(favouritesEntity: FavouritesEntity){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteFavouriteRecipe(favouritesEntity)
+        }
+    }
+
+    fun deleteAllFavouriteRecipes(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteAllFavouriteRecipes()
         }
     }
 
@@ -81,7 +102,7 @@ class MainViewModel @Inject constructor(
     }
 
     private fun offlineCacheRecipes(foodRecipe: RecipeSearchResponse) {
-        val recipesEntity=RecipesEntity(foodRecipe)
+        val recipesEntity= RecipesEntity(foodRecipe)
         insertRecipes(recipesEntity)
     }
 

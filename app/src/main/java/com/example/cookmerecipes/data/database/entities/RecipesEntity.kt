@@ -1,11 +1,11 @@
-package com.example.cookmerecipes.data.database
+package com.example.cookmerecipes.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.cookmerecipes.data.model.RecipeSearchResponse
 import com.example.cookmerecipes.util.Constants
 
-@Entity(tableName = Constants.TABLE_NAME)
+@Entity(tableName = Constants.RECIPES_TABLE_NAME)
 class RecipesEntity(
     var foodRecipe:RecipeSearchResponse
 ) {

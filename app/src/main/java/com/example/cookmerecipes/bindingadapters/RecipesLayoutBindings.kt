@@ -2,10 +2,9 @@ package com.example.cookmerecipes.bindingadapters
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.example.cookmerecipes.data.database.RecipesEntity
+import com.example.cookmerecipes.data.database.entities.RecipesEntity
 import com.example.cookmerecipes.data.model.RecipeSearchResponse
 import com.example.cookmerecipes.util.NetworkResult
 
