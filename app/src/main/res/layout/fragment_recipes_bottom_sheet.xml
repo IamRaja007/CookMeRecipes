@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/cardBackgroundColor"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.recipesfragment.bottomsheet.RecipesBottomSheet">
 
@@ -15,7 +16,7 @@
         android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
         android:fontFamily="@font/helvetica"
-        android:textColor="@color/dark"
+        android:textColor="@color/titleColor"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -158,7 +159,7 @@
         android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
         android:fontFamily="@font/helvetica"
-        android:textColor="@color/dark"
+        android:textColor="@color/titleColor"
         app:layout_constraintTop_toBottomOf="@id/horizontalScrollViewMealType"
         app:layout_constraintStart_toStartOf="parent"/>
 

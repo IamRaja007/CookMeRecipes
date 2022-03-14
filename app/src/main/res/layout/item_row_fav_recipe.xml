@@ -22,12 +22,13 @@
             app:cardCornerRadius="@dimen/_8sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/lightMediumGray"
+            app:strokeColor="@color/strokeColor"
             app:strokeWidth="@dimen/_1sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/cardBackgroundColor">
 
                 <ImageView
                     android:id="@+id/ivRecipe"
@@ -51,7 +52,7 @@
                     android:paddingTop="@dimen/_8sdp"
                     android:paddingEnd="@dimen/_8sdp"
                     android:paddingBottom="@dimen/_8sdp"
-                    android:textColor="@color/darker"
+                    android:textColor="@color/titleColor"
                     android:textSize="@dimen/_16ssp"
                     android:textStyle="bold"
                     android:text="@{favouritesEntity.result.title}"
@@ -70,7 +71,7 @@
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingEnd="@dimen/_8sdp"
                     android:paddingBottom="@dimen/_2sdp"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/descriptionColor"
                     android:textSize="@dimen/_12ssp"
                     parseHtml="@{favouritesEntity.result.summary}"
                     app:layout_constraintEnd_toEndOf="@id/tvRecipeTitle"

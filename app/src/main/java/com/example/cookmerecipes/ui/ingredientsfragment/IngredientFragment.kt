@@ -10,10 +10,13 @@ import com.example.cookmerecipes.R
 import com.example.cookmerecipes.adapters.IngredientsRecyclerAdapter
 import com.example.cookmerecipes.data.model.ExtendedIngredientsItem
 import com.example.cookmerecipes.data.model.ResultsItem
-import kotlinx.android.synthetic.main.fragment_ingredient.view.*
+import com.example.cookmerecipes.databinding.FragmentIngredientBinding
 
 
 class IngredientFragment : Fragment() {
+
+    private var _binding:FragmentIngredientBinding?=null
+    private val binding get() = _binding!!
 
     private val mAdapter:IngredientsRecyclerAdapter by lazy {
         IngredientsRecyclerAdapter()
@@ -24,22 +27,26 @@ class IngredientFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_ingredient, container, false)
+        _binding= FragmentIngredientBinding.inflate(inflater, container, false)
 
         val args = arguments
         val bundle = args?.getParcelable<ResultsItem>("recipeBundle")
 
-        setUpRecyclerView(view)
+        setUpRecyclerView()
 
         bundle?.extendedIngredients?.let {
             mAdapter.setData(it)
         }
-        return view
+        return binding.root
     }
 
-    private fun setUpRecyclerView(view:View){
-        view.rvIngredients.adapter=mAdapter
-        view.rvIngredients.layoutManager=LinearLayoutManager(requireContext())
+    private fun setUpRecyclerView(){
+        binding.rvIngredients.adapter=mAdapter
+        binding.rvIngredients.layoutManager=LinearLayoutManager(requireContext())
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

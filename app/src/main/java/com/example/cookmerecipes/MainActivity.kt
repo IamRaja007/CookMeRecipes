@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController:NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme) //We changed manifest theme to use SplashScreen Style, so it will show first. But when the Main Activity runs, it will switch back to our appTheme
         setContentView(R.layout.activity_main)
 
         navController=findNavController(R.id.HostFragment)

@@ -9,17 +9,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import com.example.cookmerecipes.R
+import com.example.cookmerecipes.databinding.FragmentRecipesBinding
+import com.example.cookmerecipes.databinding.FragmentRecipesBottomSheetBinding
 import com.example.cookmerecipes.util.Constants
 import com.example.cookmerecipes.viewmodels.RecipesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import kotlinx.android.synthetic.main.fragment_recipes_bottom_sheet.view.*
 import java.lang.Exception
 import java.util.*
 
 
 class RecipesBottomSheet : BottomSheetDialogFragment() {
+
+    private var _binding: FragmentRecipesBottomSheetBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var recipesViewModel: RecipesViewModel
 
@@ -38,18 +42,18 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val mView = inflater.inflate(R.layout.fragment_recipes_bottom_sheet, container, false)
+        _binding = FragmentRecipesBottomSheetBinding.inflate(inflater, container, false)
 
         recipesViewModel.readMealAndDietType.asLiveData().observe(viewLifecycleOwner, { value ->
             mealTypeChip = value.selectedMealType
             dietTypeChip = value.selectedDietType
 
-            updateChip(value.selectedMealTypeId, mView.chipGroup_mealType)
-            updateChip(value.selectedDietTypeId, mView.chipGroup_dietType)
+            updateChip(value.selectedMealTypeId, binding.chipGroupMealType)
+            updateChip(value.selectedDietTypeId, binding.chipGroupDietType)
 
         })
 
-        mView.chipGroup_mealType.setOnCheckedChangeListener { group, checkedChipId ->
+        binding.chipGroupMealType.setOnCheckedChangeListener { group, checkedChipId ->
             val chip = group.findViewById<Chip>(checkedChipId)
             val selectedMealType = chip.text.toString().lowercase(Locale.getDefault())
 
@@ -58,7 +62,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
 
         }
 
-        mView.chipGroup_dietType.setOnCheckedChangeListener { group, checkedChipId ->
+        binding.chipGroupDietType.setOnCheckedChangeListener { group, checkedChipId ->
             val chip = group.findViewById<Chip>(checkedChipId)
             val selectedDietType = chip.text.toString().lowercase(Locale.getDefault())
 
@@ -67,7 +71,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
 
         }
 
-        mView.btnApply.setOnClickListener {
+        binding.btnApply.setOnClickListener {
             recipesViewModel.saveMealAndDietType(
                 mealTypeChip,
                 mealTypeChipId,
@@ -78,7 +82,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
             val action=RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
             findNavController().navigate(action)
         }
-        return mView
+        return binding.root
     }
 
     private fun updateChip(chipId: Int, chipGroup: ChipGroup) {
@@ -93,4 +97,8 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
+    }
 }

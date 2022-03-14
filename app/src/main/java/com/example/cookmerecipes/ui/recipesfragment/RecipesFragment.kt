@@ -1,5 +1,6 @@
 package com.example.cookmerecipes.ui.recipesfragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -52,13 +53,22 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
         binding.lifecycleOwner =
-            this //We have to do this, because in the recipesFragment xml layout, we are going to use LiveData variables
+            viewLifecycleOwner //We have to do this, because in the recipesFragment xml layout, we are going to use LiveData variables
         binding.mainViewModel = mainViewModel
 
         setHasOptionsMenu(true)
+
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
 
         setUpRecyclerView()
 
@@ -66,10 +76,9 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
             recipesViewModel.backOnline = it
         })
 
-        lifecycleScope.launch {
+        lifecycleScope.launch { //use launchWhenStarted in crashes
             networkListener = NetworkListener()
             networkListener.checkNetworkAvailability(requireContext()).collect { status ->
-                Log.d("Network Listener", status.toString())
                 recipesViewModel.networkStatus = status
                 recipesViewModel.showNetworkStatus()
                 readDatabase()
@@ -85,13 +94,11 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
             }
 
         }
-
-        return binding.root
     }
 
     private fun readDatabase() {
         lifecycleScope.launch {
-            mainViewModel.readRecipesFromDatabase.observeOnce(viewLifecycleOwner, { database ->
+            mainViewModel.readRecipesFromDatabase.observeOnce(this@RecipesFragment, { database -> //if Using lifecycle owner as viewLifecycleOwner, app was crashing
                 if (database.isNotEmpty() && !args.backFromBottomSheet) {
                     Log.d("RecipeFragment", "ReadDatabase called")
                     mAdapter.setData(database[0].foodRecipe)
@@ -221,9 +228,9 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 //        binding.LLerror.visibility = View.GONE
 //    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null //To avoid memory Leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

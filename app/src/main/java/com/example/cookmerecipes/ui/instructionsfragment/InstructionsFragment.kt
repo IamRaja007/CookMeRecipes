@@ -8,22 +8,30 @@ import android.view.ViewGroup
 import android.webkit.WebViewClient
 import com.example.cookmerecipes.R
 import com.example.cookmerecipes.data.model.ResultsItem
-import kotlinx.android.synthetic.main.fragment_instructions.view.*
+import com.example.cookmerecipes.databinding.FragmentIngredientBinding
+import com.example.cookmerecipes.databinding.FragmentInstructionsBinding
 
 class InstructionsFragment : Fragment() {
+
+    private var _binding: FragmentInstructionsBinding?=null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view= inflater.inflate(R.layout.fragment_instructions, container, false)
+        _binding= FragmentInstructionsBinding.inflate(inflater, container, false)
 
         val args = arguments
         val bundle = args?.getParcelable<ResultsItem>("recipeBundle")
 
-        view.webviewInstructions.webViewClient = object : WebViewClient(){}
-        view.webviewInstructions.loadUrl(bundle?.sourceUrl!!)
-        return view
+        binding.webviewInstructions.webViewClient = object : WebViewClient(){}
+        binding.webviewInstructions.loadUrl(bundle?.sourceUrl!!)
+        return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
+    }
 }

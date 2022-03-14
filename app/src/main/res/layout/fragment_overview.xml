@@ -1,232 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/screenBackgroundColor"
+    app:layoutDescription="@xml/fragment_overview_scene"
     tools:context=".ui.overviewfragment.OverviewFragment">
-    
+
     <ImageView
         android:id="@+id/ivOverviewImage"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
-        android:layout_height="@dimen/_180sdp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100sdp"
         android:background="@drawable/gradient_overlay"
-        app:layout_constraintTop_toTopOf="@id/ivOverviewImage"
         app:layout_constraintBottom_toBottomOf="@id/ivOverviewImage"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintEnd_toEndOf="@id/ivOverviewImage"/>
+        app:layout_constraintEnd_toEndOf="@id/ivOverviewImage"
+        app:layout_constraintTop_toTopOf="@id/ivOverviewImage"
+        app:layout_constraintVertical_bias="1" />
 
     <TextView
         android:id="@+id/tvReadyTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100"
-        android:textColor="@color/white"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        app:layout_constraintEnd_toEndOf="@id/ivOverviewImage"
-        app:layout_constraintBottom_toBottomOf="@id/ivOverviewImage"
         android:fontFamily="@font/futurastdmedium"
-        android:textStyle="bold"/>
+        android:text="100"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ivOverviewImage"
+        app:layout_constraintEnd_toEndOf="@id/ivOverviewImage" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:background="@drawable/ic_timer"
         android:backgroundTint="@color/white"
-        android:layout_marginBottom="@dimen/_4sdp"
         app:layout_constraintBottom_toTopOf="@id/tvReadyTime"
-        app:layout_constraintStart_toStartOf="@id/tvReadyTime"
-        app:layout_constraintEnd_toEndOf="@id/tvReadyTime"/>
+        app:layout_constraintEnd_toEndOf="@id/tvReadyTime"
+        app:layout_constraintStart_toStartOf="@id/tvReadyTime" />
 
     <TextView
         android:id="@+id/tvLikesNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:fontFamily="@font/futurastdmedium"
         android:text="100"
         android:textColor="@color/white"
-        android:layout_marginEnd="@dimen/_15sdp"
-        app:layout_constraintEnd_toStartOf="@id/tvReadyTime"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/tvReadyTime"
-        android:fontFamily="@font/futurastdmedium"
-        android:textStyle="bold"/>
+        app:layout_constraintEnd_toStartOf="@id/tvReadyTime" />
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:background="@drawable/ic_heart_fav"
         android:backgroundTint="@color/white"
-        android:layout_marginBottom="@dimen/_4sdp"
         app:layout_constraintBottom_toTopOf="@id/tvLikesNumber"
-        app:layout_constraintStart_toStartOf="@id/tvLikesNumber"
-        app:layout_constraintEnd_toEndOf="@id/tvLikesNumber"/>
+        app:layout_constraintEnd_toEndOf="@id/tvLikesNumber"
+        app:layout_constraintStart_toStartOf="@id/tvLikesNumber" />
 
     <TextView
         android:id="@+id/tvRecipeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/ivOverviewImage"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Title"
-        android:fontFamily="@font/futurastdmedium"
-        android:textSize="@dimen/_20ssp"
         android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        android:fontFamily="@font/futurastdmedium"
+        android:text="Title"
+        android:textColor="@color/titleColor"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivOverviewImage" />
 
     <ImageView
         android:id="@+id/ivCheckVegetarian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkGray"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/ic_check_circle"
-        app:layout_constraintTop_toBottomOf="@id/tvRecipeTitle"
+        android:backgroundTint="@color/itemColor"
         app:layout_constraintStart_toStartOf="@id/tvRecipeTitle"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        app:layout_constraintTop_toBottomOf="@id/tvRecipeTitle" />
 
     <TextView
         android:id="@+id/tvVegetarian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vegetarian"
-        android:fontFamily="@font/helvetica"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/darkGray"
         android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/helvetica"
+        android:text="Vegetarian"
+        android:textColor="@color/itemColor"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckVegetarian"
         app:layout_constraintStart_toEndOf="@id/ivCheckVegetarian"
-        app:layout_constraintTop_toTopOf="@id/ivCheckVegetarian"
-        app:layout_constraintBottom_toBottomOf="@id/ivCheckVegetarian"/>
+        app:layout_constraintTop_toTopOf="@id/ivCheckVegetarian" />
 
     <ImageView
         android:id="@+id/ivCheckVegan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkGray"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/ic_check_circle"
-        app:layout_constraintTop_toBottomOf="@id/tvVegetarian"
+        android:backgroundTint="@color/itemColor"
         app:layout_constraintStart_toStartOf="@id/ivCheckVegetarian"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        app:layout_constraintTop_toBottomOf="@id/tvVegetarian" />
 
     <TextView
         android:id="@+id/tvVegan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vegan"
-        android:fontFamily="@font/helvetica"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/darkGray"
         android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/helvetica"
+        android:text="Vegan"
+        android:textColor="@color/itemColor"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckVegan"
         app:layout_constraintStart_toEndOf="@id/ivCheckVegan"
-        app:layout_constraintTop_toTopOf="@id/ivCheckVegan"
-        app:layout_constraintBottom_toBottomOf="@id/ivCheckVegan"/>
+        app:layout_constraintTop_toTopOf="@id/ivCheckVegan" />
 
     <ImageView
         android:id="@+id/ivCheckGlutenFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkGray"
         android:layout_marginStart="@dimen/_10sdp"
         android:background="@drawable/ic_check_circle"
+        android:backgroundTint="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@id/tvVegetarian"
         app:layout_constraintStart_toEndOf="@id/tvVegetarian"
-        app:layout_constraintTop_toTopOf="@id/tvVegetarian"
-        app:layout_constraintBottom_toBottomOf="@id/tvVegetarian" />
+        app:layout_constraintTop_toTopOf="@id/tvVegetarian" />
 
     <TextView
         android:id="@+id/tvGlutenFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gluten Free"
-        android:fontFamily="@font/helvetica"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/darkGray"
         android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/helvetica"
+        android:text="Gluten Free"
+        android:textColor="@color/itemColor"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckGlutenFree"
         app:layout_constraintStart_toEndOf="@id/ivCheckGlutenFree"
-        app:layout_constraintTop_toTopOf="@id/ivCheckGlutenFree"
-        app:layout_constraintBottom_toBottomOf="@id/ivCheckGlutenFree"/>
+        app:layout_constraintTop_toTopOf="@id/ivCheckGlutenFree" />
 
     <ImageView
         android:id="@+id/ivCheckDairyFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkGray"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/ic_check_circle"
-        app:layout_constraintTop_toBottomOf="@id/tvGlutenFree"
+        android:backgroundTint="@color/itemColor"
         app:layout_constraintStart_toStartOf="@id/ivCheckGlutenFree"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        app:layout_constraintTop_toBottomOf="@id/tvGlutenFree" />
 
     <TextView
         android:id="@+id/tvDairyFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dairy Free"
-        android:fontFamily="@font/helvetica"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/darkGray"
         android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/helvetica"
+        android:text="Dairy Free"
+        android:textColor="@color/itemColor"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckDairyFree"
         app:layout_constraintStart_toEndOf="@id/ivCheckDairyFree"
-        app:layout_constraintTop_toTopOf="@id/ivCheckDairyFree"
-        app:layout_constraintBottom_toBottomOf="@id/ivCheckDairyFree"/>
+        app:layout_constraintTop_toTopOf="@id/ivCheckDairyFree" />
 
     <ImageView
         android:id="@+id/ivCheckHealthy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkGray"
         android:layout_marginStart="@dimen/_10sdp"
         android:background="@drawable/ic_check_circle"
+        android:backgroundTint="@color/itemColor"
+        app:layout_constraintBottom_toBottomOf="@id/tvGlutenFree"
         app:layout_constraintStart_toEndOf="@id/tvGlutenFree"
-        app:layout_constraintTop_toTopOf="@id/tvGlutenFree"
-        app:layout_constraintBottom_toBottomOf="@id/tvGlutenFree" />
+        app:layout_constraintTop_toTopOf="@id/tvGlutenFree" />
 
     <TextView
         android:id="@+id/tvHealth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Healthy"
-        android:fontFamily="@font/helvetica"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/darkGray"
         android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/helvetica"
+        android:text="Healthy"
+        android:textColor="@color/itemColor"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckHealthy"
         app:layout_constraintStart_toEndOf="@id/ivCheckHealthy"
-        app:layout_constraintTop_toTopOf="@id/ivCheckHealthy"
-        app:layout_constraintBottom_toBottomOf="@id/ivCheckHealthy"/>
+        app:layout_constraintTop_toTopOf="@id/ivCheckHealthy" />
 
     <ImageView
         android:id="@+id/ivCheckCheap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkGray"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/ic_check_circle"
-        app:layout_constraintTop_toBottomOf="@id/tvHealth"
+        android:backgroundTint="@color/itemColor"
         app:layout_constraintStart_toStartOf="@id/ivCheckHealthy"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        app:layout_constraintTop_toBottomOf="@id/tvHealth" />
 
     <TextView
         android:id="@+id/tvCheap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cheap"
-        android:fontFamily="@font/helvetica"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/darkGray"
         android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/helvetica"
+        android:text="Cheap"
+        android:textColor="@color/itemColor"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheckCheap"
         app:layout_constraintStart_toEndOf="@id/ivCheckCheap"
-        app:layout_constraintTop_toTopOf="@id/ivCheckCheap"
-        app:layout_constraintBottom_toBottomOf="@id/ivCheckCheap"/>
+        app:layout_constraintTop_toTopOf="@id/ivCheckCheap" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -235,15 +242,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tvSummary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica"
                 android:text="YOOOOOOO"
-                android:textSize="@dimen/_12ssp"
-                android:fontFamily="@font/helvetica"/>
-            
+                android:textSize="@dimen/_12ssp" />
+
         </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
