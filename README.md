@@ -15,6 +15,7 @@ Free Online Api</br>
 Material Components</br>
 Dependency Injection</br>
 ROOM DB</br>
+Navigation Components</br>
 Shimmer RecyclerView</br>
 Retrofit</br>
 Coil</br>
