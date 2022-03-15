@@ -2,6 +2,7 @@ package com.example.cookmerecipes.adapters
 
 import android.view.*
 import androidx.appcompat.view.menu.MenuView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
@@ -14,8 +15,8 @@ import com.example.cookmerecipes.databinding.ItemRowRecipeBinding
 import com.example.cookmerecipes.ui.favouriterecipesfragment.FavouriteRecipesFragmentDirections
 import com.example.cookmerecipes.util.RecipesDiffUtil
 import com.example.cookmerecipes.viewmodels.MainViewModel
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.item_row_fav_recipe.view.*
 
 class FavouriteRecipesRecyclerAdapter(
     private val requireActivity: FragmentActivity, //This parameter is required to start the contextual action mode
@@ -58,7 +59,8 @@ class FavouriteRecipesRecyclerAdapter(
         /**
          * Single Click Listener
          */
-        holder.itemView.CLfavRecipes.setOnClickListener {
+        val CLfavRecipes=holder.itemView.findViewById<ConstraintLayout>(R.id.CLfavRecipes)
+        CLfavRecipes.setOnClickListener {
             if (multiSelection) {
                 applySelection(holder, selectedRecipe)
             } else {
@@ -74,7 +76,7 @@ class FavouriteRecipesRecyclerAdapter(
         /**
          * Long Click Listener
          */
-        holder.itemView.CLfavRecipes.setOnLongClickListener {
+        CLfavRecipes.setOnLongClickListener {
             if (!multiSelection) {
                 multiSelection = true
                 requireActivity.startActionMode(this)
@@ -106,10 +108,14 @@ class FavouriteRecipesRecyclerAdapter(
     }
 
     private fun changeRecipeStyle(holder: MyViewHolder, backgroundColor: Int, strokeColor: Int) {
-        holder.itemView.CLfavRecipes.setBackgroundColor(
+        val CLfavRecipes=holder.itemView.findViewById<ConstraintLayout>(R.id.CLfavRecipes)
+        CLfavRecipes.setBackgroundColor(
             ContextCompat.getColor(requireActivity, backgroundColor)
         )
-        holder.itemView.cardViewFavRecipe.strokeColor =
+
+        val cardViewFavRecipe=holder.itemView.findViewById<MaterialCardView>(R.id.cardViewFavRecipe)
+
+        cardViewFavRecipe.strokeColor =
             ContextCompat.getColor(requireActivity, strokeColor)
     }
 

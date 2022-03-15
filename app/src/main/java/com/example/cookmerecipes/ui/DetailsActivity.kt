@@ -9,18 +9,16 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
-import androidx.viewpager.widget.PagerAdapter
 import com.example.cookmerecipes.R
 import com.example.cookmerecipes.adapters.ViewPagerAdapter
 import com.example.cookmerecipes.data.database.entities.FavouritesEntity
-import com.example.cookmerecipes.data.model.IngredientsItem
+import com.example.cookmerecipes.databinding.ActivityDetailsBinding
 import com.example.cookmerecipes.ui.ingredientsfragment.IngredientFragment
 import com.example.cookmerecipes.ui.instructionsfragment.InstructionsFragment
 import com.example.cookmerecipes.ui.overviewfragment.OverviewFragment
 import com.example.cookmerecipes.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_details.*
 import java.lang.Exception
 
 @AndroidEntryPoint
@@ -29,15 +27,19 @@ class DetailsActivity : AppCompatActivity() {
     private val args by navArgs<DetailsActivityArgs>()
     private val mainViewModel:MainViewModel by viewModels()
 
+    private lateinit var binding: ActivityDetailsBinding
+
     private var recipeSaved=false
     private var savedRecipeId=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_details)
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setSupportActionBar(toolbar)
-        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.white))
+//        val toolbar = binding.toolbar
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.white))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val fragments=ArrayList<Fragment>()
@@ -55,7 +57,10 @@ class DetailsActivity : AppCompatActivity() {
 
         val adapter=ViewPagerAdapter(bundleResult,fragments,titles,supportFragmentManager)
 
+        val viewPager=binding.viewPager
         viewPager.adapter = adapter
+
+        val tabLayout=binding.tabLayout
         tabLayout.setupWithViewPager(viewPager)
     }
 

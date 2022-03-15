@@ -13,7 +13,6 @@ import com.example.cookmerecipes.databinding.FragmentFavouriteRecipesBinding
 import com.example.cookmerecipes.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_favourite_recipes.view.*
 
 @AndroidEntryPoint
 class FavouriteRecipesFragment : Fragment() {

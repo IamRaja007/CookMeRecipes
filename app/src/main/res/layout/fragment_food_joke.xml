@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8B0C6AD1"
+        android:background="@color/screenBackgroundColor"
         tools:context=".ui.foodjokefragment.FoodJokeFragment">
 
 

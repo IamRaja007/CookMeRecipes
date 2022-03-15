@@ -48,4 +48,6 @@
     <color name="bottomNavItemColor">@color/mediumGray</color>
     <color name="bottomNavCheckedItemColor">@color/purple_500</color>
 
+    <color name="favTextColor">@color/mediumGray</color>
+
 </resources>

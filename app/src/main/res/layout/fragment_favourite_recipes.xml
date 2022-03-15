@@ -48,7 +48,7 @@
                 android:src="@drawable/ic_baseline_menu_book_24"
                 android:layout_gravity="center"
                 android:alpha="0.5"
-                app:tint="@color/black" />
+                app:tint="@color/favTextColor" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
                 android:alpha="0.5"
                 android:fontFamily="@font/helvetica"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/favTextColor"
                 android:textSize="@dimen/_14ssp"
                 android:text="No favourite recipes added." />
 
