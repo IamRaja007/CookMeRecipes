@@ -11,6 +11,11 @@ Up for a food joke? We also have a section where we put upp food jokes! Have fun
 
 ## Libraries and Architecture
 MVVM architecture</br>
-Free Api</br>
+Free Online Api</br>
+Material Components</br>
+Dependency Injection</br>
+ROOM DB</br>
+Shimmer RecyclerView</br>
 Retrofit</br>
-Glide</br>
+Coil</br>
+Lottie Animations</br>
