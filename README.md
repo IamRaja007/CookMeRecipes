@@ -4,10 +4,10 @@ You don't need to worry if your internet pack is exhausted, We also have offline
 Up for a food joke? We also have a section where we put upp food jokes! Have fun!!
 
 ## Light theme glimpses
-![alt text](https://github.com/IamRaja007/CookMeRecipes/Screenshots/Light.png)
+![alt text](https://github.com/IamRaja007/CookMeRecipes/blob/master/Screenshots/Light.png)
 
 ## Dark theme glimpses
-![alt text](https://github.com/IamRaja007/CookMeRecipes/Screenshots/DARK.png)
+![alt text](https://github.com/IamRaja007/CookMeRecipes/blob/master/Screenshots/DARK.png)
 
 ## Libraries and Architecture
 MVVM architecture</br>
