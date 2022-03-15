@@ -34,7 +34,7 @@ class IngredientsRecyclerAdapter :
         val ivIngredient=holder.itemView.findViewById<ImageView>(R.id.ivIngredient)
         ivIngredient.load(Constants.BASE_IMAGE_URL + ingredientsList[position]?.image){
             crossfade(600)
-            error(R.drawable.ic_launcher_background)
+            error(R.color.lightMediumGray)
         }
         val tvIngredientName=holder.itemView.findViewById<TextView>(R.id.tvIngredientName)
         tvIngredientName.text= ingredientsList[position]?.name?.replaceFirstChar {

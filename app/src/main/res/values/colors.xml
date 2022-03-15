@@ -49,5 +49,8 @@
     <color name="bottomNavCheckedItemColor">@color/purple_500</color>
 
     <color name="favTextColor">@color/darker</color>
+<!--    <color name="ic_launcher_background">#4C4869</color>-->
+
+
 
 </resources>
